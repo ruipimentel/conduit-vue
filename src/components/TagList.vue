@@ -1,20 +1,25 @@
 <template>
   <div>
     <a
+      v-for="tag in tags"
+      :key="tag"
       href="/"
     >
-      tag1
-    </a>
-    <a
-      href="/"
-    >
-      tag2
+      {{ tag }}
     </a>
   </div>
 </template>
 
 <script>
   export default {
+    data() {
+      return {
+        tags: [
+          'tagA',
+          'tagB'
+        ]
+      };
+    }
   }
 </script>
 
