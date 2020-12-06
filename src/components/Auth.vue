@@ -56,11 +56,18 @@
     },
     methods: {
       submitHandler() {
-        console.log({
-          username: this.username,
-          email: this.email,
-          password: this.password
-        });
+        if (this.register) {
+          this.$emit('registerSubmit', {
+            username: this.username,
+            email: this.email,
+            password: this.password
+          });
+        } else {
+          this.$emit('loginSubmit', {
+            email: this.email,
+            password: this.password
+          });
+        }
       }
     }
   }
