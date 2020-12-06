@@ -1,5 +1,11 @@
 <template>
-  <div>
+  <div v-if="!tags">
+    Carregando...
+  </div>
+  <div v-else-if="tags.length === 0">
+    Não há tags
+  </div>
+  <div v-else>
     <a
       v-for="tag in tags"
       :key="tag"
@@ -12,12 +18,14 @@
 
 <script>
   export default {
+    async created() {
+      const response = await fetch('https://conduit.productionready.io/api/tags');
+      const data = await response.json();
+      this.tags = data.tags;
+    },
     data() {
       return {
-        tags: [
-          'tagA',
-          'tagB'
-        ]
+        tags: undefined
       };
     }
   }
