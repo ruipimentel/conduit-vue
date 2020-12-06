@@ -3,35 +3,57 @@
     <h1 class="center">{{ register ? 'Cadastrar' : 'Login' }}</h1>
     <div class="auth-container">
       <form @submit.prevent="submitHandler">
-        <input
+
+        <validation-provider
           v-if="register"
-          :value="username"
-          @input="username = $event.target.value"
-          autoFocus
-          id="username"
-          type="text"
-          name="username"
-          placeholder="Nome de usuário"
-          class="col"
-        />
-        <input
-          :value="email"
-          @input="email = $event.target.value"
-          :autoFocus="!register"
-          id="mail"
-          type="text"
-          name="email"
-          placeholder="E-mail"
-          class="col"
-        />
-        <input
-          v-model="password"
-          id="password"
-          type="password"
-          name="password"
-          placeholder="Senha"
-          class="col"
-        />
+          rules="required|max:20"
+          v-slot="{ errors }"
+        >
+          <input
+            :value="username"
+            @input="username = $event.target.value"
+            autoFocus
+            id="username"
+            type="text"
+            name="username"
+            placeholder="Nome de usuário"
+            class="col"
+          />
+          <div class="error">{{ errors[0] }}</div>
+        </validation-provider>
+
+        <validation-provider
+          rules="required"
+          v-slot="{ errors }"
+        >
+          <input
+            :value="email"
+            @input="email = $event.target.value"
+            :autoFocus="!register"
+            id="mail"
+            type="text"
+            name="email"
+            placeholder="E-mail"
+            class="col"
+          />
+          <div class="error">{{ errors[0] }}</div>
+        </validation-provider>
+
+        <validation-provider
+          rules="required|password"
+          v-slot="{ errors }"
+        >
+          <input
+            v-model="password"
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Senha"
+            class="col"
+          />
+          <div class="error">{{ errors[0] }}</div>
+        </validation-provider>
+
         <div class="right">
           <button
             type="submit"
@@ -46,7 +68,11 @@
 </template>
 
 <script>
+  import { ValidationProvider } from 'vee-validate';
   export default {
+    components: {
+      ValidationProvider
+    },
     props: {
       register: {
         type: Boolean,
@@ -91,6 +117,9 @@
     height: 3em;
     margin: .5em 0 0;
     font-size: 1em;
+  }
+  .error {
+    color: red;
   }
   button {
     height: 3em;
