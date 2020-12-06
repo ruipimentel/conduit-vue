@@ -1,31 +1,31 @@
 <template>
   <nav>
     <div class="container">
-      <a
-        href="/"
+      <router-link
+        to="/"
         id="logo"
       >
         conduit
-      </a>
+      </router-link>
       <div class="float-right">
-        <a
-          href="/"
+        <router-link
+          to="/"
           class="menu"
         >
           Home
-        </a>
-        <a
-          href="/login"
+        </router-link>
+        <router-link
+          to="/login"
           class="menu"
         >
           Login
-        </a>
-        <a
-          href="/register"
+        </router-link>
+        <router-link
+          to="/register"
           class="menu"
         >
           Cadastrar
-        </a>
+        </router-link>
       </div>
     </div>
   </nav>
