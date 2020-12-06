@@ -25,10 +25,16 @@ export const routes = [
   },
   {
     path: '/login',
+    props: {
+      register: false
+    },
     component: Auth
   },
   {
     path: '/register',
+    props: {
+      register: true
+    },
     component: Auth
   },
   {
