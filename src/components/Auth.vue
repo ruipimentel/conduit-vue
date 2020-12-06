@@ -18,6 +18,7 @@
             name="username"
             placeholder="Nome de usuário"
             class="col"
+            :class="errors[0] ? 'invalid' : null"
           />
           <div class="error">{{ errors[0] }}</div>
         </validation-provider>
@@ -35,6 +36,7 @@
             name="email"
             placeholder="E-mail"
             class="col"
+            :class="errors[0] ? 'invalid' : null"
           />
           <div class="error">{{ errors[0] }}</div>
         </validation-provider>
@@ -50,6 +52,7 @@
             name="password"
             placeholder="Senha"
             class="col"
+            :class="errors[0] ? 'invalid' : null"
           />
           <div class="error">{{ errors[0] }}</div>
         </validation-provider>
@@ -117,6 +120,9 @@
     height: 3em;
     margin: .5em 0 0;
     font-size: 1em;
+  }
+  input.invalid {
+    border: 1px solid red;
   }
   .error {
     color: red;
