@@ -3,7 +3,7 @@ import Auth from './components/Auth';
 
 export const routes = [
   {
-    path: '',
+    path: '/home',
     component: Home
   },
   {
@@ -13,5 +13,9 @@ export const routes = [
   {
     path: '/register',
     component: Auth
+  },
+  {
+    path: '',
+    redirect: '/home'
   }
 ];

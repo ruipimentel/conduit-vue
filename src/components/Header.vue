@@ -2,14 +2,14 @@
   <nav>
     <div class="container">
       <router-link
-        to="/"
+        to="/home"
         id="logo"
       >
         conduit
       </router-link>
       <div class="float-right">
         <router-link
-          to="/"
+          to="/home"
           class="menu"
         >
           Home
@@ -53,6 +53,9 @@
     padding: 0.5em;
     padding-right: 0;
     font-size: 0.9em;
+  }
+  .menu.active {
+    color: #000000cc;
   }
   .float-right {
     float: right;
