@@ -1,9 +1,26 @@
 <template>
-  <div class="center bg-green">
-    <h1 id="logo">conduit</h1>
-    <p id="lead">
-      Um lugar para você compartilhar todo o seu conhecimento!
-    </p>
+  <div>
+    <div class="center bg-green">
+      <h1 id="logo">conduit</h1>
+      <p id="lead">
+        Um lugar para você compartilhar todo o seu conhecimento!
+      </p>
+    </div>
+    <div class="container">
+      <div>
+        <nav>
+          <router-link :to="{ name: 'my-feed' }">
+            Meu feed
+          </router-link>
+          <router-link :to="{ name: 'global-feed' }">
+            Feed global
+          </router-link>
+        </nav>
+        <main>
+          <router-view />
+        </main>
+      </div>
+    </div>
   </div>
 </template>
 
