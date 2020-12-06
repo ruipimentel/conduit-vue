@@ -25,13 +25,19 @@
         style="width: 260px;"
       >
         Tags populares
+        <br />
+        <TagList />
       </aside>
     </div>
   </div>
 </template>
 
 <script>
+  import TagList from './TagList';
   export default {
+    components: {
+      TagList
+    }
   }
 </script>
 
