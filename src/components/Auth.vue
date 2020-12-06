@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>{{ register ? 'Cadastrar' : 'Login' }}</h1>
+    <h1 class="center">{{ register ? 'Cadastrar' : 'Login' }}</h1>
     <div class="auth-container">
       <form @submit.prevent="submitHandler">
         <input
@@ -12,6 +12,7 @@
           type="text"
           name="username"
           placeholder="Nome de usuário"
+          class="col"
         />
         <input
           :value="email"
@@ -21,6 +22,7 @@
           type="text"
           name="email"
           placeholder="E-mail"
+          class="col"
         />
         <input
           v-model="password"
@@ -28,12 +30,16 @@
           type="password"
           name="password"
           placeholder="Senha"
+          class="col"
         />
-        <button
-          type="submit"
-        >
-          Enviar
-        </button>
+        <div class="right">
+          <button
+            type="submit"
+            class="btn-primary"
+          >
+            Enviar
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -74,4 +80,21 @@
 </script>
 
 <style scoped>
+  .auth-container {
+    max-width: 600px;
+    margin-left: inherit;
+    margin-right: inherit;
+  }
+  input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 3em;
+    margin: .5em 0 0;
+    font-size: 1em;
+  }
+  button {
+    height: 3em;
+    margin: .5em 0 0;
+    font-size: 1em;
+  }
 </style>
